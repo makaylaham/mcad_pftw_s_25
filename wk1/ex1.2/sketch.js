@@ -5,7 +5,7 @@ function setup() {
 }
 
 function draw() {
-  background(color);
+  background("lightblue");
   //background color
   
   fill("yellow");
