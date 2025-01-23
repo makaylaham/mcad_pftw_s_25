@@ -1,5 +1,3 @@
-var color = window.prompt("What color do you want?");
-
 function setup() {
   createCanvas(800, 600);
 }
