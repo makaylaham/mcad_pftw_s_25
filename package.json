@@ -1,0 +1,25 @@
+{
+  "name": "mcad_pftw_s_25",
+  "version": "1.0.0",
+  "description": "MCAD - Programming for the Web - Spring - 2025",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makaylaham/mcad_pftw_s_25.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makaylaham/mcad_pftw_s_25/issues"
+  },
+  "homepage": "https://github.com/makaylaham/mcad_pftw_s_25#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0"
+  }
+}
