@@ -24,18 +24,3 @@ function draw() {
   }
 }
 
-// function mousePressed () {
-//   if (
-//     mouseX > myCard.x
-//     &&
-//     mouseX < myCard.x + myCard.width
-//     &&
-//     mouseY > myCard.y
-//     &&
-//     mouseY < myCard.y + myCard.height
-//   ) {
-//     console.log ("clicked card")
-//   } else {
-//     console.log ("clicked outside of card")
-//   }
-// }
