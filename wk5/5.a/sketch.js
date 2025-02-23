@@ -56,12 +56,16 @@ function setup() {
 
 function draw () {
   background('CornFlowerBlue');
+  fill('white');
+  textSize(100);
+  strokeWeight(2);
+  text('Sweet Treats Memory Game', 100, 120);
   if (gameState.numMatched === gameState.totalPairs) {
-    fill('yellow');
-    strokeWeight(0);
-    textSize(46);
-    text('Congrats! You have won the Sweet Treats Matching Game!', 60, 175);
-    noLoop();
+  fill('yellow');
+  strokeWeight(0);
+  textSize(56);
+  text('Congrats! You are a winner!', 400, 200);
+  noLoop();
   }
   for (let k = 0; k < cards.length; k++) {
     if (!cards[k].isMatch) {
@@ -75,13 +79,13 @@ function draw () {
   fill('white');
   strokeWeight(0);
   textSize(36);
-  text('ATTEMPTS: ' + gameState.attempts, 400, 700);
-  text('MATCHES: ' + gameState.numMatched, 100, 700);
+  text('MATCHES: ' + gameState.numMatched, 315, 700);
+  text('ATTEMPTS: ' + gameState.attempts, 940, 700);
   stroke('white');
-  strokeWeight(3);
+  strokeWeight(5);
   noFill();
-  rect(60, 663, 1360, 50)
-  line(360, 663, 360, 710)
+  rect(270, 663, 310, 50);
+  rect(900, 663, 310, 50);
 }
 
 function mousePressed () {
