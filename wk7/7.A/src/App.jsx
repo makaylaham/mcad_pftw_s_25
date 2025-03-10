@@ -62,7 +62,7 @@ function App() {
       <tbody>
         {cdAlbums.map((album, index) => {
           return (
-            <AlbumRow 
+            <albumRow 
             key={album.image}
             odd={index % 2 === 0}
             albumName={album.albumName}

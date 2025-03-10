@@ -1,6 +1,6 @@
 import "./AlbumRow.css"
 
-export function AlbumRow({albumName, albumArtist, releaseYear, numberOfTracks, labelCompany, image}) {
+export function albumRow({albumName, albumArtist, releaseYear, numberOfTracks, labelCompany, image}) {
     return (
         <tr className={odd && "odd"}>
           <td class="firstcolumn">{albumName}</td>
