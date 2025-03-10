@@ -1,0 +1,24 @@
+.albumtable {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.albumtable th, .albumtable tr, .albumtable td {
+  border-bottom: 1px solid black;
+}
+
+.albumtable td, .albumtable th {
+  border-left: 1px solid black;
+}
+
+.albumtable img{
+  width: 220px;
+}
+
+.albumtable .firstcolumn {
+  border-left: none;
+}
+
+.albumtable .lastrow td {
+  border-bottom: none;
+}
