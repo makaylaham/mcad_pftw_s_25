@@ -1,18 +1,31 @@
 .albumtable {
+  max-width: 1500px;
   width: 100%;
-  border: 1px solid black;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin-left: 150px;
 }
 
 .albumtable th, .albumtable tr, .albumtable td {
-  border-bottom: 1px solid black;
+  border-bottom: 2.5px solid black;
+  text-align: center;
 }
 
 .albumtable td, .albumtable th {
-  border-left: 1px solid black;
+  border-left: 2.5px solid black;
+}
+
+.albumtable th {
+  font-size: 20px;
+}
+
+.albumtable td {
+  font-size: 18px;
 }
 
 .albumtable img{
   width: 220px;
+  border-radius: 15px;
 }
 
 .albumtable .firstcolumn {

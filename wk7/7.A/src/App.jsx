@@ -1,5 +1,5 @@
 import "./App.css"
-
+import "./AlbumRow.css"
 
 function App() {
   const cdAlbums = [
@@ -59,21 +59,47 @@ function App() {
           <th>Album Cover</th>
         </tr>
       </thead>
-      <tbody>
-        {cdAlbums.map((album, index) => {
-          return (
-            <albumRow 
-            key={album.image}
-            odd={index % 2 === 0}
-            albumName={album.albumName}
-            albumArtist={album.albumName}
-            releaseYear={album.releaseYear}
-            numberOfTracks={album.numberOfTracks}
-            labelCompany={album.labelCompany}
-            image={album.image}
-            />
-          )
-        })}
+      <tbody> 
+            <tr className="odd">
+              <td class="firstcolumn">{cdAlbums[0].albumName}</td>
+              <td>{cdAlbums[0].albumArtist}</td>
+              <td>{cdAlbums[0].releaseYear}</td>
+              <td>{cdAlbums[0].numberOfTracks}</td>
+              <td>{cdAlbums[0].labelCompany}</td>
+              <td><img src={cdAlbums[0].image} alt={cdAlbums[0].albumName}></img></td>
+            </tr>
+            <tr>
+              <td class="firstcolumn">{cdAlbums[1].albumName}</td>
+              <td>{cdAlbums[1].albumArtist}</td>
+              <td>{cdAlbums[1].releaseYear}</td>
+              <td>{cdAlbums[1].numberOfTracks}</td>
+              <td>{cdAlbums[1].labelCompany}</td>
+              <td><img src={cdAlbums[1].image} alt={cdAlbums[1].albumName}></img></td>
+            </tr>
+            <tr className="odd">
+              <td class="firstcolumn">{cdAlbums[2].albumName}</td>
+              <td>{cdAlbums[2].albumArtist}</td>
+              <td>{cdAlbums[2].releaseYear}</td>
+              <td>{cdAlbums[2].numberOfTracks}</td>
+              <td>{cdAlbums[2].labelCompany}</td>
+              <td><img src={cdAlbums[2].image} alt={cdAlbums[2].albumName}></img></td>
+            </tr>
+            <tr>
+              <td class="firstcolumn">{cdAlbums[3].albumName}</td>
+              <td>{cdAlbums[3].albumArtist}</td>
+              <td>{cdAlbums[3].releaseYear}</td>
+              <td>{cdAlbums[3].numberOfTracks}</td>
+              <td>{cdAlbums[3].labelCompany}</td>
+              <td><img src={cdAlbums[3].image} alt={cdAlbums[3].albumName}></img></td>
+            </tr>
+            <tr className="odd">
+              <td class="firstcolumn">{cdAlbums[4].albumName}</td>
+              <td>{cdAlbums[4].albumArtist}</td>
+              <td>{cdAlbums[4].releaseYear}</td>
+              <td>{cdAlbums[4].numberOfTracks}</td>
+              <td>{cdAlbums[4].labelCompany}</td>
+              <td><img src={cdAlbums[4].image} alt={cdAlbums[4].albumName}></img></td>
+            </tr>
       </tbody>
     </table>
     </>
