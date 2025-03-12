@@ -1,8 +1,9 @@
-import './App.css'
+import './App.css';
 import {useState} from "react";
 
 function App () {
-  const [animalImage, setAnimalImage] = useState({llamaImg: "./llama.jpg", alpacaImg: "./alpaca.jpg"})
+  const [llamaImage, setLlamaImage] = useState("./llama.jpg");
+  const [alpacaImage, setAlpacaImage] = useState("./alpaca.jpg"); 
 
   return (
     <>
@@ -10,14 +11,14 @@ function App () {
     <div>
       LLAMA
       <button onClick ={() => {
-        setAnimalImage({...animalImage, llamaImg: animalImage.llamaImg});
-      }}>Click Here For Llama</button>
+        setLlamaImage(llamaImage);
+      }}>Llama</button>
     </div>
     <div>
       ALPACA
       <button onClick ={() => {
-        setAnimalImage({...animalImage, alpacaImg: animalImage.alpacaImg});
-      }}>Click Here For Alpaca</button>
+        setAlpacaImage(alpacaImage);
+      }}>Alpaca</button>
     </div>
     </>
   )

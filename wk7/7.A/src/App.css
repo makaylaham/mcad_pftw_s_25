@@ -35,3 +35,7 @@
 .albumtable .lastrow td {
   border-bottom: none;
 }
+
+.odd {
+  background-color: rgba(194, 159, 202, 0.527);
+}

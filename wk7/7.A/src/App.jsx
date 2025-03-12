@@ -1,5 +1,5 @@
 import "./App.css"
-import "./components/AlbumRow.css"
+import {AlbumRow} from "./components/AlbumRow.jsx"
 
 function App() {
   const cdAlbums = [
