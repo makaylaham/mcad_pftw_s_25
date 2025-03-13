@@ -2,25 +2,29 @@ import './App.css';
 import {useState} from "react";
 
 function App () {
-  const [llamaImage, setLlamaImage] = useState("./llama.jpg");
-  const [alpacaImage, setAlpacaImage] = useState("./alpaca.jpg"); 
-
+  const [myImage, setMyImage] = useState();
   return (
     <>
-    <h1>Llama vs. Alpaca</h1>
     <div>
-      LLAMA
-      <button onClick ={() => {
-        setLlamaImage(llamaImage);
+      <h1>Llama vs. Alpaca</h1>
+      <p>Click a button to see the animal!</p>
+    </div>
+    
+    <div className="buttons">
+      <button onClick={() => {
+        setMyImage("./llama.jpg")
       }}>Llama</button>
     </div>
-    <div>
-      ALPACA
-      <button onClick ={() => {
-        setAlpacaImage(alpacaImage);
+    <div className="buttons">
+      <button onClick={() => {
+        setMyImage("./alpaca.jpg")
       }}>Alpaca</button>
     </div>
-    </>
+
+    <div className="displayimage">
+    <img src={myImage}></img>
+    </div>
+   </>
   )
 }
 
