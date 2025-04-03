@@ -1,0 +1,27 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+ul {
+  display: inline-flex;
+  flex-direction: row;
+  list-style: none;
+  margin-left: 0;
+  border: 2px solid white;
+  width: 255px;
+  background-color: rgb(227, 205, 255);
+}
+
+li {
+  margin-left: 0;
+  padding: 1px;
+  margin: 5px;
+  border: 1px solid purple;
+  background-color: rgba(128, 0, 128, 0.164);
+  width: 60px;
+  height: 25px;
+}
+
