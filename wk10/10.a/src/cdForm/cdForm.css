@@ -1,0 +1,33 @@
+.formgroup {
+    display: flex;
+    flex-direction: column;   
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-wrapper {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px black solid;
+    padding: 20px;
+    background-color: palevioletred;
+}
+
+.form-group input {
+    width: 390px
+}
+
+button {
+    background-color: white;
+    color:black;
+    width: 250px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+h4 {
+    margin-top: 0;
+}
