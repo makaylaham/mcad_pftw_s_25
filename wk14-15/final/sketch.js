@@ -11,40 +11,113 @@ const gameState = {
   attempts: 0,
   waiting: false
 };
-let cardfaceArray = [];
+let cardObjectArray = [];
 let cardback;
 
 
 function preload() {
   cardback = loadImage('images/card cover.png');
-  cardfaceArray = [
-    loadImage('images/apple.jpg'),
-    loadImage('images/clock.png'),
-    loadImage('images/duck.jpg'),
-    loadImage('images/pencil.jpg'),
-    loadImage('images/piano.jpg'),
-    loadImage('images/printer.jpg'),
-    loadImage('images/raincoat.png')
-  ]
+//   cardfaceArray = [
+//     loadImage('images/apple.jpg'),
+//     loadImage('images/clock.png'),
+//     loadImage('images/duck.jpg'),
+//     loadImage('images/pencil.jpg'),
+//     loadImage('images/piano.jpg'),
+//     loadImage('images/printer.jpg'),
+//     loadImage('images/raincoat.png')
+//   ]
+// }
+cardObjectArray = [
+  {
+    imageA: loadImage('images/apple.jpg'),
+    imageB: loadImage('images/apple-german.png'),
+    match: "apple",
+    // sound: loadSound('sounds/apple.mp3')
+
+  },
+  {
+    imageA: loadImage('images/clock.png'),
+    imageB: loadImage('images/clock-german.png'),
+    match: "clock",
+    // sound: loadSound('sounds/piano.mp3')
+
+  },
+  {
+    imageA: loadImage('images/piano.jpg'),
+    imageB: loadImage('images/piano-german.png'),
+    match: "piano",
+    // sound: loadSound('sounds/piano.mp3')
+
+  },
+  {
+    imageA: loadImage('images/duck.jpg'),
+    imageB: loadImage('images/duck-german.png'),
+    match: "duck",
+    // sound: loadSound('sounds/piano.mp3')
+
+  },
+  {
+    imageA: loadImage('images/pencil.jpg'),
+    imageB: loadImage('images/pencil-german.png'),
+    match: "pencil",
+    // sound: loadSound('sounds/piano.mp3')
+
+  },
+  {
+    imageA: loadImage('images/printer.jpg'),
+    imageB: loadImage('images/printer-german.png'),
+    match: "printer",
+    // sound: loadSound('sounds/piano.mp3')
+
+  },
+  {
+    imageA: loadImage('images/raincoat.png'),
+    imageB: loadImage('images/raincoat-german.png'),
+    match: "raincoat",
+    // sound: loadSound('sounds/piano.mp3')
+
+  }
+]
 }
+
 
 function setup() {
   createCanvas(1500, 800);
 
   let selectedFaces = [];
   for (let z = 0; z < 7; z++) {
-    const randomIdx = floor(random(cardfaceArray.length));
-    const face = cardfaceArray[randomIdx];
-    selectedFaces.push(face);
-    selectedFaces.push(face);
-    cardfaceArray.splice(randomIdx, 1);
+    const randomIdx = floor(random(cardObjectArray.length));
+    // const face = cardfaceArray[randomIdx];
+    const selectedObject = cardObjectArray[randomIdx]
+    console.log(selectedObject)
+    selectedFaces.push(
+      {
+        image: selectedObject.imageA, 
+        matchKey: selectedObject.match, 
+        // sound: selectedObject.sound
+      }
+  );
+    selectedFaces.push(
+      {
+        image: selectedObject.imageB, 
+        matchKey: selectedObject.match, 
+        // sound: selectedObject.sound
+      }
+    );
+    cardObjectArray.splice(randomIdx, 1);
   }
   selectedFaces = shuffleArray(selectedFaces);
   myCard = new Card();
   for (let j = 0; j < 2; j++) {
     for (let i = 0; i < 7; i++) {
       const faceImage = selectedFaces.pop();
-      cards.push(new Card(startingX, startingY, faceImage));
+      cards.push(new Card(
+        startingX, 
+        startingY, 
+        faceImage.image,
+        faceImage.matchKey,
+        faceImage.sound
+      ));
       startingX += 210;
       // console.log(startingX);
   }
@@ -100,7 +173,7 @@ function mousePressed () {
   }
   if (gameState.flippedCards.length === 2) {
     gameState.attempts++;
-    if (gameState.flippedCards[0].cardFaceImg === gameState.flippedCards[1].cardFaceImg) {
+    if (gameState.flippedCards[0].matchKey === gameState.flippedCards[1].matchKey) {
       gameState.flippedCards[0].isMatch = true;
       gameState.flippedCards[1].isMatch = true;
       gameState.flippedCards.length = 0;
@@ -117,7 +190,7 @@ function mousePressed () {
 }
 
 class Card {
-  constructor (x, y, cardFaceImg) {
+  constructor (x, y, cardFaceImg, matchKey, sound) {
     this.x = x;
     this.y = y;
     this.width = 100;
@@ -125,6 +198,8 @@ class Card {
     this.face = DOWN;
     this.cardFaceImg = cardFaceImg;
     this.isMatch = false;
+    this.sound = sound;
+    this.matchKey = matchKey
     this.show();
   }
   show () {
