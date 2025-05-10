@@ -9,7 +9,8 @@ const gameState = {
   flippedCards: [],
   numMatched: 0, 
   attempts: 0,
-  waiting: false
+  waiting: false,
+  sound: [],
 };
 let cardObjectArray = [];
 let cardback;
@@ -17,64 +18,55 @@ let cardback;
 
 function preload() {
   cardback = loadImage('images/card cover.png');
-//   cardfaceArray = [
-//     loadImage('images/apple.jpg'),
-//     loadImage('images/clock.png'),
-//     loadImage('images/duck.jpg'),
-//     loadImage('images/pencil.jpg'),
-//     loadImage('images/piano.jpg'),
-//     loadImage('images/printer.jpg'),
-//     loadImage('images/raincoat.png')
-//   ]
-// }
+
 cardObjectArray = [
   {
     imageA: loadImage('images/apple.jpg'),
     imageB: loadImage('images/apple-german.png'),
     match: "apple",
-    // sound: loadSound('sounds/apple.mp3')
+    sound: loadSound('sounds/655616__hankof__biting-appile.wav')
 
   },
   {
     imageA: loadImage('images/clock.png'),
     imageB: loadImage('images/clock-german.png'),
     match: "clock",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/575561__keerotic__tick-tock.wav')
 
   },
   {
     imageA: loadImage('images/piano.jpg'),
     imageB: loadImage('images/piano-german.png'),
     match: "piano",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/112568__juskiddink__piano-f-minor-chord5th-octave.wav')
 
   },
   {
     imageA: loadImage('images/duck.jpg'),
     imageB: loadImage('images/duck-german.png'),
     match: "duck",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/791152__mari0411__quack.mp3')
 
   },
   {
     imageA: loadImage('images/pencil.jpg'),
     imageB: loadImage('images/pencil-german.png'),
     match: "pencil",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/796659__frostnox__quick-pencil-writing-1.ogg')
 
   },
   {
     imageA: loadImage('images/printer.jpg'),
     imageB: loadImage('images/printer-german.png'),
     match: "printer",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/166690__dersuperanton__printer.mp3')
 
   },
   {
     imageA: loadImage('images/raincoat.png'),
     imageB: loadImage('images/raincoat-german.png'),
     match: "raincoat",
-    // sound: loadSound('sounds/piano.mp3')
+    sound: loadSound('sounds/196669__soundmary__rain-on-plastic-jacket.mp3')
 
   }
 ]
@@ -94,14 +86,14 @@ function setup() {
       {
         image: selectedObject.imageA, 
         matchKey: selectedObject.match, 
-        // sound: selectedObject.sound
+        sound: selectedObject.sound
       }
   );
     selectedFaces.push(
       {
         image: selectedObject.imageB, 
         matchKey: selectedObject.match, 
-        // sound: selectedObject.sound
+        sound: selectedObject.sound
       }
     );
     cardObjectArray.splice(randomIdx, 1);
@@ -132,12 +124,13 @@ function draw () {
   fill('white');
   textSize(70);
   strokeWeight(2);
-  text('German Vocabulary / Deutsches Vokabelspiel', 35, 120);
+  text('German Vocabulary / Deutsches Vokabelspiel', 35, 110);
   if (gameState.numMatched === gameState.totalPairs) {
   fill('yellow');
   strokeWeight(0);
   textSize(56);
-  text('Congrats! You are a winner!', 400, 200);
+  text('Congrats! You are a winner!', 400, 165);
+  text('Herzlichen Glückwunsch! Sie sind ein Gewinner!', 150, 225);
   noLoop();
   }
   for (let k = 0; k < cards.length; k++) {
@@ -176,8 +169,10 @@ function mousePressed () {
     if (gameState.flippedCards[0].matchKey === gameState.flippedCards[1].matchKey) {
       gameState.flippedCards[0].isMatch = true;
       gameState.flippedCards[1].isMatch = true;
+      gameState.flippedCards[0].sound.play();
       gameState.flippedCards.length = 0;
       gameState.numMatched++;
+      
       loop();
     } else {
       gameState.waiting = true;
